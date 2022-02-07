@@ -1,4 +1,4 @@
-Docker Compose Drupal 9 base - php8, nginx, postgres
+Docker Compose Drupal 9 base - php7, nginx, postgres
 ====================================================
 
 This is a docker-compose version of the Lando example tests:
@@ -45,8 +45,8 @@ docker-compose exec -T cli bash -c "env | grep LAGOON=" | grep cli-drupal
 docker-compose exec -T cli bash -c "env" | grep LAGOON_ROUTE | grep drupal9-postgres.docker.amazee.io
 docker-compose exec -T cli bash -c "env" | grep LAGOON_ENVIRONMENT_TYPE | grep development
 
-# Should be running PHP 8
-docker-compose exec -T cli bash -c "php -v" | grep "PHP 8"
+# Should be running PHP 7
+docker-compose exec -T cli bash -c "php -v" | grep "PHP 7"
 
 # Should have composer
 docker-compose exec -T cli bash -c "composer --version"

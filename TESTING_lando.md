@@ -1,4 +1,4 @@
-Lando Drupal 9 base - php8, nginx, postgres
+Lando Drupal 9 base - php7, nginx, postgres
 ===========================================
 
 This example exists primarily to test the following documentation:
@@ -46,8 +46,8 @@ lando ssh -c "env | grep LAGOON=" | grep cli-drupal
 lando ssh -c "env" | grep LAGOON_ROUTE | grep drupal9-postgres.lndo.site
 lando ssh -c "env" | grep LAGOON_ENVIRONMENT_TYPE | grep development
 
-# Should be running PHP 8
-lando ssh -c "php -v" | grep "PHP 8"
+# Should be running PHP 7
+lando ssh -c "php -v" | grep "PHP 7"
 
 # Should have composer
 lando composer --version
