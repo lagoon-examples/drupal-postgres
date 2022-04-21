@@ -8,8 +8,5 @@ RUN composer global remove hirak/prestissimo || true \
 COPY . /app
 RUN mkdir -p -v -m775 /app/web/sites/default/files
 
-# Override the default Drush extra-dump command for MariaDB
-ENV EXTRA_DUMP_CMD=" "
-
 # Define where the Drupal Root is located
 ENV WEBROOT=web
