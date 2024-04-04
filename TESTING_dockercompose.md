@@ -1,7 +1,7 @@
 Docker Compose Drupal base - php8, nginx, postgres
 ==================================================
 
-This is a docker-compose version of the Lando example tests:
+This is a docker compose version of the Lando example tests:
 
 Start up tests
 --------------
@@ -10,7 +10,7 @@ Run the following commands to get up and running with this example.
 
 ```bash
 # Should remove any previous runs and poweroff
-sed -i -e "/###/d" docker compose.yml
+sed -i -e "/###/d" docker-compose.yml
 docker network inspect amazeeio-network >/dev/null || docker network create amazeeio-network
 docker compose down
 
