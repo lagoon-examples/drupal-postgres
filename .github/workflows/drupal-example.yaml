@@ -63,4 +63,4 @@ jobs:
     # - name: Show Lando logs
     #   continue-on-error: true
     #   run: |
-    #     docker compose -p drupal9postgres logs
+    #     docker compose -p drupalpostgres logs

@@ -1,9 +1,9 @@
-Lando Drupal 9 base - php8, nginx, postgres
-===========================================
+Lando Drupal base - php8, nginx, postgres
+=========================================
 
 This example exists primarily to test the following documentation:
 
-* [Lagoon Recipe - Drupal 9](https://docs.lando.dev/config/lagoon.html)
+* [Lagoon Recipe - Drupal](https://docs.lando.dev/config/lagoon.html)
 
 Start up tests
 --------------
@@ -16,7 +16,7 @@ lando --clear
 lando destroy -y
 lando poweroff
 
-# Should start up our Lagoon Drupal 9 site successfully
+# Should start up our Lagoon Drupal site successfully
 lando start
 ```
 
@@ -32,18 +32,18 @@ lando drush cr -y
 lando drush status | grep "Drupal bootstrap" | grep "Successful"
 
 # Should have all the services we expect
-docker ps --filter label=com.docker.compose.project=drupal9postgres | grep Up | grep drupal9postgres_nginx_1
-docker ps --filter label=com.docker.compose.project=drupal9postgres | grep Up | grep drupal9postgres_postgres_1
-docker ps --filter label=com.docker.compose.project=drupal9postgres | grep Up | grep drupal9postgres_mailhog_1
-docker ps --filter label=com.docker.compose.project=drupal9postgres | grep Up | grep drupal9postgres_php_1
-docker ps --filter label=com.docker.compose.project=drupal9postgres | grep Up | grep drupal9postgres_cli_1
-docker ps --filter label=com.docker.compose.project=drupal9postgres | grep Up | grep drupal9postgres_lagooncli_1
+docker ps --filter label=com.docker.compose.project=drupalpostgres | grep Up | grep drupalpostgres_nginx_1
+docker ps --filter label=com.docker.compose.project=drupalpostgres | grep Up | grep drupalpostgres_postgres_1
+docker ps --filter label=com.docker.compose.project=drupalpostgres | grep Up | grep drupalpostgres_mailhog_1
+docker ps --filter label=com.docker.compose.project=drupalpostgres | grep Up | grep drupalpostgres_php_1
+docker ps --filter label=com.docker.compose.project=drupalpostgres | grep Up | grep drupalpostgres_cli_1
+docker ps --filter label=com.docker.compose.project=drupalpostgres | grep Up | grep drupalpostgres_lagooncli_1
 
 # Should ssh against the cli container by default
 lando ssh -c "env | grep LAGOON=" | grep cli-drupal
 
 # Should have the correct environment set
-lando ssh -c "env" | grep LAGOON_ROUTE | grep drupal9-postgres.lndo.site
+lando ssh -c "env" | grep LAGOON_ROUTE | grep drupal-postgres.lndo.site
 lando ssh -c "env" | grep LAGOON_ENVIRONMENT_TYPE | grep development
 
 # Should be running PHP 8
@@ -70,7 +70,7 @@ lando yarn --version
 # Should have lagoon cli
 lando lagoon --version | grep lagoon
 
-# Should have a running Drupal 9 site served by nginx on port 8080
+# Should have a running Drupal site served by nginx on port 8080
 lando ssh -s cli -c "curl -kL http://nginx:8080" | grep "Welcome to Drush Site-Install"
 
 # Check PostgreSQL version is 11.*
@@ -98,7 +98,7 @@ Destroy tests
 Run the following commands to trash this app like nothing ever happened.
 
 ```bash
-# Should be able to destroy our Drupal 9 site with success
+# Should be able to destroy our Drupal site with success
 lando destroy -y
 lando poweroff
 ```
