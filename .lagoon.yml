@@ -1,6 +1,6 @@
 docker-compose-yaml: docker-compose.yml
 
-project: drupal9-postgres
+project: drupal-postgres
 
 tasks:
 #   pre-rollout:

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'php74'
   pull_request:
     branches:
       - 'main'
@@ -17,15 +16,14 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: "0"
-    - name: install Lando
-      run: |
-        wget https://files.lando.dev/installer/lando-x64-stable.deb
-        sudo dpkg --ignore-depends=docker-ce -i lando-x64-stable.deb
+    # - name: install Lando
+    #   run: |
+    #     wget https://files.lando.dev/installer/lando-x64-stable.deb
+    #     sudo dpkg --ignore-depends=docker-ce -i lando-x64-stable.deb
     - name: Report versions
       run: |
         docker version
-        docker-compose version
-        lando version
+        docker compose version
         node -v
         yarn -v
     - name: get user ids
@@ -42,14 +40,14 @@ jobs:
         sed -i -e "/###/d" docker-compose.yml
     - name: Pull all images
       run: |
-        docker-compose pull --ignore-pull-failures
+        docker compose pull --ignore-pull-failures
     - name: Install test harness
       run: |
         yarn add leia-parser mocha chai@4 command-line-test
     - name: Generate test files
       run: |
         yarn leia "TESTING*.md" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file
-    - name: Run docker-compose tests
+    - name: Run docker compose tests
       run: |
         yarn mocha --timeout 900000 test/*compose*.func.js
     # - name: Run Lando tests
@@ -64,4 +62,4 @@ jobs:
     # - name: Show Lando logs
     #   continue-on-error: true
     #   run: |
-    #     docker-compose -p drupal9postgres logs
+    #     docker compose -p drupalpostgres logs
