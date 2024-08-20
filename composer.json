@@ -23,8 +23,7 @@
         "drupal/core-project-message": "10.3.2",
         "drupal/core-recommended": "10.3.2",
         "drupal/lagoon_logs": "3.0.1",
-        "drush/drush": "13.0.1",
-        "zaporylie/composer-drupal-optimizations": "1.2.0"
+        "drush/drush": "13.0.1"
     },
     "require-dev": {
         "drupal/core-dev-pinned": "10.3.2"
@@ -41,7 +40,6 @@
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "drupal/core-project-message": true,
-            "zaporylie/composer-drupal-optimizations": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true
