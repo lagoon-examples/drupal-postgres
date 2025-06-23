@@ -85,7 +85,7 @@ services:
       << : *default-environment # loads the defined environment variables from the top
 
   postgres:
-    image: uselagoon/postgres-14-drupal:latest
+    image: uselagoon/postgres-17-drupal:latest
     labels:
       lagoon.type: postgres
       lando.type: postgres-drupal

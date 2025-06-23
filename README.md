@@ -8,10 +8,10 @@ dependencies with [Composer](https://getcomposer.org/). It is based on the [orig
 ## Included Services
 
 This example contains the following services:
-* Drupal 10
-* PHP 8
+* Drupal 11.x
+* PHP 8.x
 * NGINX
-* Postgres 14
+* Postgres 17
 
 To see similar projects with additional services, please visit https://github.com/lagoon-examples and to find out more about the services, please visit the documentation at https://docs.lagoon.sh/lagoon
 
